@@ -1,12 +1,13 @@
 FROM python:latest
+ENV VIRTUAL_ENV "/venv"
+RUN python -m venv $VIRTUAL_ENV
+ENV PATH "$VIRTUAL_ENV/bin:$PATH"
 #clonning repo 
-RUN git clone https://github.com/iYkjFQ5w9PcB4UpDRLeMrZ2zyWGv0O3T/telemirror.git /root/telemirror
+COPY . .
 #working directory 
-WORKDIR /root/telemirror
+#WORKDIR /root/telemirror
 
 # Install requirements
 RUN pip3 install -U -r requirements.txt
 
-ENV PATH="/home/telemirror/bin:$PATH"
-
-CMD ["python3","-m","/root/telemirror/app/telemirror.py"]
+CMD python3 app/telemirror.py
