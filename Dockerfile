@@ -9,4 +9,4 @@ RUN pip3 install -U -r requirements.txt
 
 ENV PATH="/home/telemirror/bin:$PATH"
 
-CMD ["python3","-m","app/telemirror.py"]
+CMD ["python3","-m","/root/telemirror/app/telemirror.py"]
